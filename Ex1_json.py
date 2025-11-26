@@ -89,6 +89,11 @@ print(library)
 #
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
+choice = 0
+while choice != 3:
+    print("--- BOOK INVENTORY ---")
+    print()
+    print("a. View All Books | 2. Search for Book | 3. Exit")
 
 
 
