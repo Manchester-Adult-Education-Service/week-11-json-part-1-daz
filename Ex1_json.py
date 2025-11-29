@@ -95,15 +95,20 @@ while choice != 3:
     print()
     print("1. View All Books | 2. Search for Book | 3. Exit")
     print()
-    choice = int(input("2Please select an option "))
+    choice = int(input("Please select an option "))
+    if choice == 1:
+        for book in library:
+            print()
+            print(f"Title: {book["title"]} | Author: {book["author"]} | Genre: {book["genre"]} | Price: £{book["price"]} | Stock: {book["stock"]}")
+        print()
     if choice == 3:
         print()
         print("Goodbye")
         print()
-    else:
-        print()
-        print("Invalid choice")
-        print()
+else:
+    print()
+    print("Invalid choice")
+    print()
 
 
 
