@@ -93,8 +93,17 @@ choice = 0
 while choice != 3:
     print("--- BOOK INVENTORY ---")
     print()
-    print("a. View All Books | 2. Search for Book | 3. Exit")
-
+    print("1. View All Books | 2. Search for Book | 3. Exit")
+    print()
+    choice = int(input("2Please select an option "))
+    if choice == 3:
+        print()
+        print("Goodbye")
+        print()
+    else:
+        print()
+        print("Invalid choice")
+        print()
 
 
 
