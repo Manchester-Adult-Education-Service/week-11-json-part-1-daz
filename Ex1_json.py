@@ -50,8 +50,9 @@ import json  # We need this tool to read the external file
 #     variable_name = json.load(file)
 #
 # Write your code below:
-
-
+with open('books.json', 'r') as file:
+    library = json.load(file)
+print(library)
 
 
 # -------------------------------------------
@@ -89,6 +90,60 @@ import json  # We need this tool to read the external file
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
 
+choice = 0
+total_value = 0
+
+while choice != 5:
+    print("--- BOOK INVENTORY ---")
+    print()
+    print("1. View All Books | 2. Search for Book | 3. Add New Book | 4. Calculate Total Inventory Value | 5. Exit")
+    print()
+    choice = int(input("Please select an option "))
+    
+    if choice == 1:
+        for book in library:
+            print()
+            print(f"Title: {book["title"]} | Author: {book["author"]} | Genre: {book["genre"]} | Price: £{book["price"]} | Stock: {book["stock"]}")
+        print()
+    
+    elif choice == 2:
+        found = False       
+        print()
+        search_term = input("Enter Title to search for ")
+        print()
+        for book in library:                      # I cant for the life of me see why this isn't working!
+            if book ['title'].lower() == search_term.lower():
+                found = True
+                print()
+                print("Found:")
+                print(f"Title: {book["title"]} | Author: {book["author"]} | Genre: {book["genre"]} | Price: £{book["price"]} | Stock: {book["stock"]}")
+            print()              
+            if found == False:
+                print("Book not found")
+            print()
+    
+    elif choice == 3:
+        title = input("Enter book title: ")
+        author = input("Enter Author name: ")
+        genre = input("Enter genre: ")
+        price = float(input("Enter price £: "))
+        stock = int(input("Enter number of books: "))
+        book = {"id": id, "title": title, "author":author, "genre":genre, "price":price, "stock":stock}
+        library.append(book)
+        with open('books.json', 'w') as file:
+            json.dump(library, file, indent=4)
+    
+    elif choice == 4:
+        for book in library:
+            total_value = (total_value +(book["stock"]*book["price"]))
+        print()        
+        print(f"Total Inventory Value is £{total_value}")
+        print()
+    
+    if choice == 5:
+        print()
+        print("Goodbye")
+        print()
 
 
 
